@@ -1,0 +1,54 @@
+:root {
+    --primary: #0a2a70;
+    --secondary: white;
+    --tertiary: rgb(192, 246, 253);
+    --grey: #333;
+    font-size: 62.5%;
+  }
+header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3vw;
+}
+
+main {
+    text-align: center;
+    margin:20vh 15vw;
+}
+
+main p {
+    font-size: 2vw;
+}
+
+main h1 {
+    font-size: 2.5vw;
+    font-style: bold;
+}
+main ul li {
+    background-color: var(--primary);
+    color: var(--secondary);
+    
+}
+.quiz {
+    display: flex;
+    flex-direction: column;
+}
+
+ #start {
+    padding: 3px;
+    align-self: center;
+    justify-self: center;
+    width: 15vw;
+    font-size: 1.5vw;
+ }
+
+ .button-container {
+     display: flex;
+     justify-content: center;
+
+ }
+
+ .buttons {
+     display: flex;
+
+ }
