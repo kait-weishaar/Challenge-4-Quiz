@@ -15,6 +15,7 @@ const descriptionEl = document.getElementById('description');
 const messageEl = document.getElementById('msg-display');
 //const feedbackEl = document.getElementById('feedback');
 const startbtnEl = document.getElementById('startbtn');
+const highScores = document.getElementById('highScores');
 
 
 var questions = [
@@ -57,22 +58,58 @@ timerEl.textContent = '0';
 messageEl.textContent= 'Coding Quiz Challenge';
 descriptionEl.textContent = "Try to answer all of the questions within the time limit. Keep in mind an incorrect answer will deduct ten seconds from the remaining time!"
 
-
-
+let timeLeft = 75;
+let timeInterval; 
+let finishTime;
 function countdown() {
-  let timeLeft = 75;
+   
+      timeInterval = setInterval(function() {
+      if (timeLeft >= 0) {
+         timerEl.textContent = timeLeft;
+       timeLeft--;
+         console.log(timeLeft)
+       } else {
+         //displayEndMessage();
+         clearInterval(timeInterval);
+       }
+     }, 1000);
+   }
 
-  const timeInterval = setInterval(function() {
-   if (timeLeft >= 0) {
-      timerEl.textContent = timeLeft;
-    timeLeft--;
-      console.log(timeLeft)
-    } else {
-      //displayEndMessage();
-      clearInterval(timeInterval);
-    }
-  }, 1000);
+function displayHighScores() {
+
 }
+
+function displayEndMessage() {
+     timerEl.textContent = finishTime;
+     messageEl.textContent= 'All Done!';
+     descriptionEl.textContent = "Your final score is:";
+     answerDiv.innerHTML = '';
+     let form = document.createElement('form');
+           let input = document.createElement('input');
+                input.setAttribute("type", "text");
+                input.setAttribute("name", "Name");
+                input.setAttribute("placeholder", "Name");
+          let submit = document.createElement("input");
+                submit.setAttribute("type", "submit");
+                submit.setAttribute("value", "Submit");
+     answerDiv.appendChild(form);
+     form.appendChild(input);
+     form.appendChild(submit);
+
+     localStorage.setItem("name", Name);
+     localStorage.setItem("score", finishTime);
+
+}
+
+function displayLastMessage() {
+     timerEl.setAttribute('class', 'invisible');
+     highScores.setAttribute('class', 'invisible');
+     answerDiv.innerHTML = '';
+     let scores = document.createElement('p');
+     scores.textContent= get
+
+}
+
 startbtnEl.onclick= function () {
      startGame()
 };
@@ -84,19 +121,21 @@ const startGame = function() {
 
 
      countdown();
-     displayQuestion(questions.shift);
+     displayQuestion(questions.shift());
 }
 
 
 
 
 
-function displayQuestion(q) {  
+function displayQuestion(q) { 
+     console.log(q); 
      // display the question itself
      questionDiv.innerHTML = q.question;
      feedbackEl.textContent= '';
      // remove any existing buttons from answerDiv
      answerDiv.innerHTML = '';
+     
      
      // for each option in the 'options' array, create a button
      for(i = 0; i < q.options.length; i++) {
@@ -109,11 +148,14 @@ function displayQuestion(q) {
              var id = parseInt(this.getAttribute('id'),10);
              
              // if the id of the button matches the answer index,
-             // the user was right, so increment numRight and display it
+             // the user was right display
              if(id === q.answerIdx) {
+                  alert('correct')
                feedbackEl.textContent= 'Correct!';
              } else {
-               feedbackEl.textContent= 'Correct!';
+               feedbackEl.textContent= 'Wrong!';
+               alert('wrong');
+               timeLeft -= 10;
              }
              
              // if there are more questions to be displayed, 
@@ -121,7 +163,12 @@ function displayQuestion(q) {
              if(questions.length) {
                  displayQuestion(questions.shift()); 
              } else {
-                 alert('Done!');
+               clearInterval(timeInterval);
+                 let finishTime = timeLeft;
+                 timerEl.textContent = finishTime;
+                 console.log(finishTime)
+                 displayEndMessage();
+
              }                    
          }
              
