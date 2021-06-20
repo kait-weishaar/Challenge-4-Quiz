@@ -52,3 +52,7 @@ main ul li {
      display: flex;
 
  }
+
+ .invisible {
+     display: none;
+ }
