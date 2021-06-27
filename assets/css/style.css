@@ -5,6 +5,9 @@
     --grey: #333;
     font-size: 62.5%;
   }
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
 header {
     display: flex;
     justify-content: space-between;
@@ -17,7 +20,8 @@ main {
 }
 
 main p {
-    font-size: 2vw;
+    font-size: 1.1vw;
+    padding:0 25vw;
 }
 
 main h1 {
@@ -74,3 +78,33 @@ main h1 {
  .unstyled {
     list-style-type:none;
  }
+
+ .unstyled li {
+     text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+ }
+
+ #highScores {
+     background-color: #0a2a70;
+     border-radius: 2vw;
+     margin: 20px 0;
+     color: white;
+ }
+
+ #startbtn {
+    background-color: #0a2a70;
+    border-radius: 2vw;
+    padding: 10px 50px;
+    color: white;
+}
+
+#highScores:hover {
+    background-color: #bc20fa;
+}
+
+#startbtn:hover {
+    background-color: #bc20fa;
+}
+.button-container button:hover{
+    background-color: #bc20fa;
+
+}

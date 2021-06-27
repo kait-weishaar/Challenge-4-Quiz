@@ -1,7 +1,6 @@
 //Link to html elements
               const timerEl = document.getElementById('countdown');
               const quizContainerEl = document.getElementById('quiz');
-              //const btnContainerEl = document.getElementById('button-container');
               let descriptionEl = document.getElementById('description');
               const messageEl = document.getElementById('msg-display');
               let feedbackEl = document.getElementById('feedback');
@@ -113,7 +112,7 @@ function displayQuestion(q) {
             
             // display the question itself
             questionDiv.innerHTML = q.question;
-            //feedbackEl.textContent= '';
+            
             // remove any existing buttons from answerDiv
             answerDiv.innerHTML = '';
             feedbackEl.classList.remove("invisible");
@@ -131,11 +130,9 @@ function displayQuestion(q) {
                 // if the id of the button matches the answer index,
                 // the user was right display
                 if(id === q.answerIdx) {
-                    //alert('correct')
                   feedbackEl.textContent= 'Correct!';
                 } else {
                   feedbackEl.textContent= 'Wrong!';
-                  //alert('wrong');
                   timeLeft -= 10;
                 }
           
@@ -146,7 +143,6 @@ function displayQuestion(q) {
           } else {
             clearInterval(timeInterval);
               let score = timeLeft;
-              //timerEl.textContent = score;
               console.log(score);
               displayEndMessage();
 
@@ -168,6 +164,7 @@ function displayEndMessage() {
           descriptionEl.textContent = "Your final score is " + score;
           answerDiv.innerHTML = ''; //Clear answer options
           feedbackEl.setAttribute('class', 'invisible');
+
           //Create the form with input and submit
           let form = document.createElement('form');
                 let input = document.createElement('input');
@@ -185,12 +182,10 @@ function displayEndMessage() {
           
           //Create a function that stores form input and score to local storage, and calls high scores page
           
-          //  submit.onclick = function() {submitForm(input, score);}
           form.addEventListener('submit', function(e) {
             e.preventDefault();
             submitForm(input, score)
           })
-          //  submit.addEventListener("submit", submitFormHandler);
 }
 
 function getLocalStorage() {
@@ -207,10 +202,9 @@ function setLocalStorage(stuffToAdd) {
 }
 
 function submitForm(input, score) {
-    // construct our singular element to be stringified and added to local storage
-    // {name: "paul", score: 54}
+    // construct onject to be stringified and added to local storage
     let tempObj = {name: input.value, score: score};
-    console.log('tempObject', tempObj);
+    
 
     // when we set localstorage it overwrites everything there so instead of just writing to local storage, first we get whats in the storage and then add our element to the parsed array, then stringify it all and put it in the ls
     setLocalStorage(tempObj);
