@@ -10,20 +10,21 @@
 <body>
 
     <header>
-        <button type="button" id="highScores">View High Scores</button>
+        <button type="button" id="highScores" class="highScores">View High Scores</button>
 
-        <p class="timer" id="timer" >Time:<span id="countdown"></span></p>
+        <p class="timer" id="timer" >Time:<span id="countdown" class="countdown"></span></p>
     </header>
     
     
     <main id="quiz">
         <h1 class="msg-display" id="msg-display"></h1>
-        <p id="description"></p>
-        <button id ="startbtn"> Start</button>
+        <p id="description" class="description"></p>
+        <button id ="startbtn" class ="startbtn" > Start</button>
         <div class="button-container" id="button-container"></div>
         <div class = "feedback" id="feedback"></div>
    </main>
     
-    <script src="./assets/js/script.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+   <script src="./assets/js/script.js"></script>
 </body>
 </html>
