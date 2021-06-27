@@ -10,7 +10,7 @@ A website that hosts a quiz about web development.
 * Javascript
 
 ## Website
-https://kait-weishaar.github.io/friendly-parakeet/
+https://kait-weishaar.github.io/Challenge-4-Quiz
 
 ![Image of quiz](./assets/quiz.png)
 
