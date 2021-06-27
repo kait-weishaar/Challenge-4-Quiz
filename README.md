@@ -12,7 +12,7 @@ A website that hosts a quiz about web development.
 ## Website
 https://kait-weishaar.github.io/friendly-parakeet/
 
-![Image of Parakeet](./Develop/parakeet.png)
+![Image of quiz](./assets/quiz.png)
 
 
 ## Contribution
